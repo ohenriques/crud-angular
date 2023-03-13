@@ -74,3 +74,7 @@ ____
 - Customizado a tabela para preencher 100% de largura de tela também
 - foi inserido os componentes `<mat-card> <mat-card-content> <mat-toolbar>` na estilização da tabela 
 ____
+## 08 - Criando um Service no Angular
+- `ng g s courses/services/courses`
+- É utilizado injeção de dependencia quando pegamos o service e injetamento dentro do contrutor o courses.component.ts
+____

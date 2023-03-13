@@ -1,3 +1,4 @@
+import { CoursesService } from './../services/courses.service';
 import { Course } from './../model/course';
 import { Component } from '@angular/core';
 
@@ -7,10 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent {
-  public courses: Course[] = [{ _id: '1', name: 'Java', category: 'back-end' }];
+  public courses: Course[] = [];
   displayedColumns = ['name', 'category'];
 
-  constructor() {
+  // coursesServices: CoursesService;
+
+  constructor(private coursesServices: CoursesService) {
     // this.courses = [];
+    // this.coursesServices = new CoursesService();
+    this.courses = this.coursesServices.list();
   }
+
+  // ngOnInit():void{
+  //   this.courses = this.coursesServices.list();
+  // }
 }
