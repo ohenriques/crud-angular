@@ -49,4 +49,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 }`
 - Como o primeiro path está vazio e tem o redirectTo course, então quando entrar ele já vai renderizar o loadChildren.
 - Onde eu quero renderizar a rota, `<router-outlet></router-outlet>`
+
 ---
+
+## 05 - Customizando o Tema do Angular Material
+
+- [Paleta de cores AngularMaterial](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors)
+
