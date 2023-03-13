@@ -57,6 +57,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [Paleta de cores AngularMaterial](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors)
 
 
+____
 ## 06 - Criando Material Table para Listar Cursos
 
 - indo no Angular Material e utilizando o `import {MatTableModule} from '@angular/material/table';` 
@@ -65,3 +66,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Não deve-se esquecer de importar o MatTableModule para dentro do courses.module.ts
 - Configurando quais são as colunas que serão mostradas com o `displayedColumns`
 - Mockando um registro
+____
+## 07 - CSS do Material Table e Criando um Módulo App Material
+
+- Criando um Módulo App Material que é compartilhado com a aplicação inteira
+- tudo que foi criado dentro da pasta **shared** será compartilhado com a aplicação inteira, por isso a ideia de colocar um módulo compartilhado dentro dela, para ser acessado em todo o ambiente do app.
+- Customizado a tabela para preencher 100% de largura de tela também
+- foi inserido os componentes `<mat-card> <mat-card-content> <mat-toolbar>` na estilização da tabela 
+____
