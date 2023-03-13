@@ -27,7 +27,26 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Logs Commits
+
 1 - Criei a aplicação com o `ng new crud-angular`, estou usando scss, adicionei roteamento, incluí o angular material com `ng add @angular/material`
-  - Dentro do `app.component.html` coloquei um componente do material design.
-  - Dentro do `app.module.ts` adicionei o `import { MatToolbarModule } from '@angular/material/toolbar';` 
-  - Logo em seguida adicionei dentro dos imports o `MatToolbarModule`
+
+- Dentro do `app.component.html` coloquei um componente do material design.
+- Dentro do `app.module.ts` adicionei o `import { MatToolbarModule } from '@angular/material/toolbar';`
+- Logo em seguida adicionei dentro dos imports o `MatToolbarModule`
+
+---
+
+2 - criei um módulo antes de criar um componente com `ng g m courses --routing`
+
+- onde **g** é de generate **m** de module após isso vem o nome do módulo e **--routing** é para o cli do angular gerar o roteamente
+- caso eu queria usar um componente de dentro do módulo courses eu necessito exporta-lo
+- Criando um componente `ng g c courses/courses` | Aqui eu crio um componente dentro do diretório de courses.
+- configuando a rota para abrir o futuro componente de listas com o roteamento. | Vou até o `courses-routing.module.ts` e coloco o path como vazio e quando ele for requisitado ele renderiza o componente `CoursesComponent`.
+- Configurando o escopo global, para que se não houver nada a url ele redirecione para uma url específica. ` path: '', pathMatch:'full', redirectTo: 'courses'` isso em `app-routing`.
+- _Carregue a rota de forma automática já que esse módulo é um módulo filho da aplicação_ `{
+  path: 'courses',
+  loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule)
+}`
+- Como o primeiro path está vazio e tem o redirectTo course, então quando entrar ele já vai renderizar o loadChildren.
+- Onde eu quero renderizar a rota, `<router-outlet></router-outlet>`
+---
