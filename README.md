@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Logs Commits
+1 - Criei a aplicação com o `ng new crud-angular`, estou usando scss, adicionei roteamento, incluí o angular material com `ng add @angular/material`
+  - Dentro do `app.component.html` coloquei um componente do material design.
+  - Dentro do `app.module.ts` adicionei o `import { MatToolbarModule } from '@angular/material/toolbar';` 
+  - Logo em seguida adicionei dentro dos imports o `MatToolbarModule`
