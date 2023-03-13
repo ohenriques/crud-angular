@@ -56,3 +56,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [Paleta de cores AngularMaterial](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors)
 
+
+## 06 - Criando Material Table para Listar Cursos
+
+- indo no Angular Material e utilizando o `import {MatTableModule} from '@angular/material/table';` 
+- Criando uma interface 
+- `ng g interface courses/model/course` que será utilizada apena em tempo de desenvolvimento
+- Não deve-se esquecer de importar o MatTableModule para dentro do courses.module.ts
+- Configurando quais são as colunas que serão mostradas com o `displayedColumns`
+- Mockando um registro
