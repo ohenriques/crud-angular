@@ -56,29 +56,34 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [Paleta de cores AngularMaterial](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors)
 
+---
 
-____
 ## 06 - Criando Material Table para Listar Cursos
 
-- indo no Angular Material e utilizando o `import {MatTableModule} from '@angular/material/table';` 
-- Criando uma interface 
+- indo no Angular Material e utilizando o `import {MatTableModule} from '@angular/material/table';`
+- Criando uma interface
 - `ng g interface courses/model/course` que será utilizada apena em tempo de desenvolvimento
 - Não deve-se esquecer de importar o MatTableModule para dentro do courses.module.ts
 - Configurando quais são as colunas que serão mostradas com o `displayedColumns`
 - Mockando um registro
-____
+
+---
+
 ## 07 - CSS do Material Table e Criando um Módulo App Material
 
 - Criando um Módulo App Material que é compartilhado com a aplicação inteira
 - tudo que foi criado dentro da pasta **shared** será compartilhado com a aplicação inteira, por isso a ideia de colocar um módulo compartilhado dentro dela, para ser acessado em todo o ambiente do app.
 - Customizado a tabela para preencher 100% de largura de tela também
-- foi inserido os componentes `<mat-card> <mat-card-content> <mat-toolbar>` na estilização da tabela 
-____
+- foi inserido os componentes `<mat-card> <mat-card-content> <mat-toolbar>` na estilização da tabela
+
+---
+
 ## 08 - Criando um Service no Angular
 
 - `ng g s courses/services/courses`
 - É utilizado injeção de dependencia quando pegamos o service e injetamento dentro do contrutor o courses.component.ts
-____
+
+---
 
 ## 09 - Chamada HTTP Get no Angular e RXJS
 
@@ -88,18 +93,34 @@ ____
 - utilizando o `take(1)`após você receber todas as informações você fecha a conexão com a origem.
 - `first()` é utilizado para obter a primeira resposta do servidor assim que bater no endpoing.
 
-____
+---
 
 ## 10 - Lista de Cursos: Spinner (Carregando)
 
 - Adicionando o `<mat-spinner></mat-spinner>` para colocar o spinner e adicionando o `MatProgressSpinnerModule` no shared para ser compartilhado com a aplicação.
 - envolve-se o courses.component.html dentro de uma div, para que seja incluido um `ng-if` para verificar se foi carregado, caso não é mostrado o spinner
-- o ` | async ` automaticamente se incrive no observable. Porém como estou utilizando o `first()`ele já realiza o unsubscribe automaticamente
+- o `| async` automaticamente se incrive no observable. Porém como estou utilizando o `first()`ele já realiza o unsubscribe automaticamente
 - ao colocar um sinal de dolar[$] no nome de uma variável, automaticamente estamos falando que aquela variável é um observable.
 - Colocando um ; dentro do ngIf é a mesma coisa de implementar um Else e nesse caso coloca-se o `else loagin' o loading pode ser qualquer nome.
-- Após isso, colocamos o `ng-template` para	ser executado apenas caso seja falso.
+- Após isso, colocamos o `ng-template` para ser executado apenas caso seja falso.
 - no service foi colocado um `delay(2000)` para simular realmente um delay na resposta da chamada a API.
 - Centralizando o spinner com **SCSS**
-- 
+- ***
 
+## 11 - Lista de Cursos: Tratamento de Erros e MatDialog
 
+- Em pop-ups de erros pode usar um `snackbar` ou um `dialog`
+- Criando um módulo para o diretório de _shared_ `ng g m shared`
+- Criando um componente para o pop-up de error dentro do diretório _shared_ para ser compartilhado com toda a aplicação `ng g c shared/components/error-dialog`
+- Como não havia sido importado dentro de _courses.module_ antes, ai foi realizado o import do **SharedModule**.
+- Em **courses.component.ts** foi realizada a implementação de um método `onError` que recebe uma mensagem como string e abre o componente dialog. [Dialog Doc.](https://material.angular.io/components/dialog/overview).
+- Quando colocado o pipe após a chamada do método dentro do **courses.component.ts** ele junto com o catchError consegue retornar um _observable_ para que caso de algum erro na aplicação e retorne um objeto vazio ele sobe o meu pop-up de error.
+- Adiciono dentro de **app-material.module** _MatDialogModule_ e _MatButtonModule_ para melhor organização.
+
+---
+
+## 🟡 Correção 🟡
+
+- [ ] Verificar as duas chamadas assíncronas, que estão sendo realizadas `return this.httpClient.get<Course[]>` em **Courses.Service.ts**
+
+---
