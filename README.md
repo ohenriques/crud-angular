@@ -75,6 +75,7 @@ ____
 - foi inserido os componentes `<mat-card> <mat-card-content> <mat-toolbar>` na estilização da tabela 
 ____
 ## 08 - Criando um Service no Angular
+
 - `ng g s courses/services/courses`
 - É utilizado injeção de dependencia quando pegamos o service e injetamento dentro do contrutor o courses.component.ts
 ____
@@ -88,3 +89,17 @@ ____
 - `first()` é utilizado para obter a primeira resposta do servidor assim que bater no endpoing.
 
 ____
+
+## 10 - Lista de Cursos: Spinner (Carregando)
+
+- Adicionando o `<mat-spinner></mat-spinner>` para colocar o spinner e adicionando o `MatProgressSpinnerModule` no shared para ser compartilhado com a aplicação.
+- envolve-se o courses.component.html dentro de uma div, para que seja incluido um `ng-if` para verificar se foi carregado, caso não é mostrado o spinner
+- o ` | async ` automaticamente se incrive no observable. Porém como estou utilizando o `first()`ele já realiza o unsubscribe automaticamente
+- ao colocar um sinal de dolar[$] no nome de uma variável, automaticamente estamos falando que aquela variável é um observable.
+- Colocando um ; dentro do ngIf é a mesma coisa de implementar um Else e nesse caso coloca-se o `else loagin' o loading pode ser qualquer nome.
+- Após isso, colocamos o `ng-template` para	ser executado apenas caso seja falso.
+- no service foi colocado um `delay(2000)` para simular realmente um delay na resposta da chamada a API.
+- Centralizando o spinner com **SCSS**
+- 
+
+
