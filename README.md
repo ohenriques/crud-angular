@@ -28,7 +28,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
+<div align="center">
+
 # Logs ✍🏻
+
+</div>
 
 ## 1 - Criei a aplicação com o `ng new crud-angular`, estou usando scss, adicionei roteamento, incluí o angular material com `ng add @angular/material`
 
@@ -128,17 +132,21 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - _pipe_ = dado um valor eu vou ter uma lógica e eu vou retornar esse valor transformado.
 - O _pipe_ será criado dentro do diretório **categoria** simplesmente pois pode ser utilizado em outro local.
 - para gerar um pipe com o Angular CLI ⬇:
-      ng g pipe shared/pipes/category
+  ng g pipe shared/pipes/category
 - [+ icons](https://fonts.google.com/icons?hl=pt-br)
 - adicionando o `CategoryPipe` dentro do `shared.module.ts` para que ele possa ser acessado dentro do `courses.component.ts`
 - adicionando o componente de **Icon** dentro do **AppMaterialModule**.
 - Criando um pipe e com o **switch case** é realizado uma verificação onde ele recebe o dado e trata e devolve para o **courses.component.html** dentro do `mat-icon` é enviado os dados para o **pipe**.
 
-# 🟡 FIX
+<div align="center">
 
-## 1 -
+# 🟡 FIX 🟡
 
-- [x] Verificar as duas chamadas assíncronas, que estão sendo realizadas `return this.httpClient.get<Course[]>` em **Courses.Service.ts**
+</div>
+
+## 1
+
+🟢 Verificar as duas chamadas assíncronas, que estão sendo realizadas `return this.httpClient.get<Course[]>` em **Courses.Service.ts**
 
 -> Para realizar a correção a solução foi ao invés de usar o operadot `cathError`, usar o `tap`.
 substituindo
@@ -160,4 +168,7 @@ por
      })
     );
 
+___
+
+## 
 ---
