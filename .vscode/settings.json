@@ -1,0 +1,29 @@
+{
+  "files.exclude": {
+    // Ocultando todos os arquivos ocultos
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.ts": true,
+    "**/.gitignore": true,
+    "**/.editorconfig": true,
+    "**/.angular": true,
+
+    // Ocultando diretório dos módulos
+    "**/node_modules": true,
+
+    "**/tsconfig.app.json": true,
+    "**/tsconfig.json": true,
+    "**/tsconfig.spec.json": true,
+    "**/package-lock.json": true,
+    "**/angular.json": true,
+
+    // Ocultando todos os arquivos de configurações
+    "**/extensions.json": true,
+    "**/tasks.json": true,
+    "**/launch.json": true,
+
+    // Ocultando todos os arquivos de teste
+    "**/*.spec.ts": true,
+    "**/.gitkeep": true
+  }
+}

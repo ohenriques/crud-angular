@@ -26,9 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-## Logs Commits
+---
 
-1 - Criei a aplicação com o `ng new crud-angular`, estou usando scss, adicionei roteamento, incluí o angular material com `ng add @angular/material`
+# Logs ✍🏻
+
+## 1 - Criei a aplicação com o `ng new crud-angular`, estou usando scss, adicionei roteamento, incluí o angular material com `ng add @angular/material`
 
 - Dentro do `app.component.html` coloquei um componente do material design.
 - Dentro do `app.module.ts` adicionei o `import { MatToolbarModule } from '@angular/material/toolbar';`
@@ -36,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
-2 - criei um módulo antes de criar um componente com `ng g m courses --routing`
+## 2 - criei um módulo antes de criar um componente com `ng g m courses --routing`
 
 - onde **g** é de generate **m** de module após isso vem o nome do módulo e **--routing** é para o cli do angular gerar o roteamente
 - caso eu queria usar um componente de dentro do módulo courses eu necessito exporta-lo
@@ -105,7 +107,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Após isso, colocamos o `ng-template` para ser executado apenas caso seja falso.
 - no service foi colocado um `delay(2000)` para simular realmente um delay na resposta da chamada a API.
 - Centralizando o spinner com **SCSS**
-- ***
+
+---
 
 ## 11 - Lista de Cursos: Tratamento de Erros e MatDialog
 
@@ -119,13 +122,26 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ---
 
+## 12 - Lista de Cursos: Pipe para mostrar ícone
+
+- Inserindo um icone é necesário utilizar o `import {MatIconModule} from '@angular/material/icon' `
+- _pipe_ = dado um valor eu vou ter uma lógica e eu vou retornar esse valor transformado.
+- O _pipe_ será criado dentro do diretório **categoria** simplesmente pois pode ser utilizado em outro local.
+- para gerar um pipe com o Angular CLI ⬇:
+      ng g pipe shared/pipes/category
+- [+ icons](https://fonts.google.com/icons?hl=pt-br)
+- adicionando o `CategoryPipe` dentro do `shared.module.ts` para que ele possa ser acessado dentro do `courses.component.ts`
+- adicionando o componente de **Icon** dentro do **AppMaterialModule**.
+- Criando um pipe e com o **switch case** é realizado uma verificação onde ele recebe o dado e trata e devolve para o **courses.component.html** dentro do `mat-icon` é enviado os dados para o **pipe**.
+
 # 🟡 FIX
 
-## 1 - 
+## 1 -
+
 - [x] Verificar as duas chamadas assíncronas, que estão sendo realizadas `return this.httpClient.get<Course[]>` em **Courses.Service.ts**
 
 -> Para realizar a correção a solução foi ao invés de usar o operadot `cathError`, usar o `tap`.
-substituindo 
+substituindo
 
     `this.courses$ = this.coursesServices.list().pipe(
       catchError((error) => {
@@ -133,8 +149,8 @@ substituindo
         return of([]);
       })
     );
-     
-  por 
+
+por
 
     this.courses$ = this.coursesServices.list().pipe(
      tap({
