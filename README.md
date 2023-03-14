@@ -78,3 +78,13 @@ ____
 - `ng g s courses/services/courses`
 - É utilizado injeção de dependencia quando pegamos o service e injetamento dentro do contrutor o courses.component.ts
 ____
+
+## 09 - Chamada HTTP Get no Angular e RXJS
+
+- Criando uma arquvio dentro de assets apenas para mockar uma chamada http, após desenvolver o backend será excluido esse arquivo.
+- o `pipe` é utilizado para manipular uma informação depois de realizar um get.
+- devemos evitar de fazer um `subscribe`e deixar o Angular mesmo decidir
+- utilizando o `take(1)`após você receber todas as informações você fecha a conexão com a origem.
+- `first()` é utilizado para obter a primeira resposta do servidor assim que bater no endpoing.
+
+____
