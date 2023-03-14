@@ -1,7 +1,7 @@
 import { CoursesService } from './../services/courses.service';
 import { Course } from './../model/course';
 import { Component } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
 
@@ -23,12 +23,19 @@ export class CoursesComponent {
     // this.courses = [];
     // this.coursesServices = new CoursesService();
     this.courses$ = this.coursesServices.list().pipe(
-      catchError((error) => {
-        this.onError('Erro ao carregar ');
-        return of([]);
+      tap({
+        error: (error) => {
+          this.onError('Não foi possível carregar a lista de cursos');
+        },
       })
     );
   }
+
+  // tap({
+  //       error: (error) => {
+  //         this.onError('Não foi possível carregar a lista de cursos');
+  //       },
+  //     })
 
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
