@@ -138,37 +138,48 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - adicionando o componente de **Icon** dentro do **AppMaterialModule**.
 - Criando um pipe e com o **switch case** é realizado uma verificação onde ele recebe o dado e trata e devolve para o **courses.component.html** dentro do `mat-icon` é enviado os dados para o **pipe**.
 
-<div align="center">
+___
+## 16 - Banco de Dados H2 e Conectando o Angular na API Spring | **CORS ERROR**
+- Chamadas entre dominios diferentes (api + angular) demandam de uma configuração para que o Angular possa acessar a api sem que haja problema de **cors**
+- Correção: criar um arquivo na raiz do projeto chamado `proxy.conf.js`
+- no `package.json` editar o ng start para `"start": "ng serve --proxy-config proxy.conf.js ",`
+- Após criar o arquivo é necessario que seja da seguinte forma
 
-# 🟡 FIX 🟡
+      const PROXY_CONFIG = [
+        {
+          context:['/api'],
+          target: 'http://localhost:8080/',
+          secure:false,
+          logLevel: 'debug'
+        }
+      ];
 
-</div>
+      module.exports = PROXY_CONFIG
 
-## 1
+- Atualizar a API no arquivo de serviços `private readonly API = 'api/courses';`
+- Desta maneira sempre que eu colocar no Angular um path com o inicio **api**/anything ele irá me redirecionar para `'http://localhost:8080/'`
 
-🟢 Verificar as duas chamadas assíncronas, que estão sendo realizadas `return this.httpClient.get<Course[]>` em **Courses.Service.ts**
-
--> Para realizar a correção a solução foi ao invés de usar o operadot `cathError`, usar o `tap`.
-substituindo
-
-    `this.courses$ = this.coursesServices.list().pipe(
-      catchError((error) => {
-        this.onError("Erro ao carregar ");
-        return of([]);
-      })
-    );
-
-por
-
-    this.courses$ = this.coursesServices.list().pipe(
-     tap({
-       error: (error) => {
-         this.onError("Erro ao carregar");
-       },
-     })
-    );
 
 ___
+## 18 - Componente de Formulário e Roteamento para criar cursos
 
-## 
----
+- Usar a diretivad o Angular Material `Mat-Header-Cell` onde é possivel configurar como a gente quer a própria coluna
+- Sempre adicionar o cabeçalho e o corpo ` <mat-cell *matCellDef="let course">`
+- Criando um novo componente para editar um curso `ng g c courses/course-form`
+- Adicionando um método de click quando clicado ele redireciona para uma outra página a maneira de fazer esse redirecionamento é da sequinte forma: 
+
+      onAdd() { 
+        this.router.navigate(['new'], { relativeTo: this.route });
+      }
+
+- onde o **new** representea o path para onde eu quero ir.
+- o `RelativeTo` para indicar que eu quero pegar a rota atual onde eu to e inserir o parametro anterior depois.
+- Não esquecer de adicionar no construtor as seguintes propriedades
+      
+      private router: Router,
+      private route: ActivatedRoute
+
+- realizei também a declaração do **path** no *courses-routing.module.ts*.
+
+___ 
+
