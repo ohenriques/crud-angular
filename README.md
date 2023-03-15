@@ -138,8 +138,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - adicionando o componente de **Icon** dentro do **AppMaterialModule**.
 - Criando um pipe e com o **switch case** é realizado uma verificação onde ele recebe o dado e trata e devolve para o **courses.component.html** dentro do `mat-icon` é enviado os dados para o **pipe**.
 
-___
+---
+
 ## 16 - Banco de Dados H2 e Conectando o Angular na API Spring | **CORS ERROR**
+
 - Chamadas entre dominios diferentes (api + angular) demandam de uma configuração para que o Angular possa acessar a api sem que haja problema de **cors**
 - Correção: criar um arquivo na raiz do projeto chamado `proxy.conf.js`
 - no `package.json` editar o ng start para `"start": "ng serve --proxy-config proxy.conf.js ",`
@@ -159,27 +161,34 @@ ___
 - Atualizar a API no arquivo de serviços `private readonly API = 'api/courses';`
 - Desta maneira sempre que eu colocar no Angular um path com o inicio **api**/anything ele irá me redirecionar para `'http://localhost:8080/'`
 
+---
 
-___
 ## 18 - Componente de Formulário e Roteamento para criar cursos
 
 - Usar a diretivad o Angular Material `Mat-Header-Cell` onde é possivel configurar como a gente quer a própria coluna
 - Sempre adicionar o cabeçalho e o corpo ` <mat-cell *matCellDef="let course">`
 - Criando um novo componente para editar um curso `ng g c courses/course-form`
-- Adicionando um método de click quando clicado ele redireciona para uma outra página a maneira de fazer esse redirecionamento é da sequinte forma: 
+- Adicionando um método de click quando clicado ele redireciona para uma outra página a maneira de fazer esse redirecionamento é da sequinte forma:
 
-      onAdd() { 
+      onAdd() {
         this.router.navigate(['new'], { relativeTo: this.route });
       }
 
 - onde o **new** representea o path para onde eu quero ir.
 - o `RelativeTo` para indicar que eu quero pegar a rota atual onde eu to e inserir o parametro anterior depois.
 - Não esquecer de adicionar no construtor as seguintes propriedades
-      
+
       private router: Router,
       private route: ActivatedRoute
 
-- realizei também a declaração do **path** no *courses-routing.module.ts*.
+- realizei também a declaração do **path** no _courses-routing.module.ts_.
 
-___ 
+<div align="center">
 
+## ATT:
+
+No momento estou dando uma pausa nesta playlist de **Angular + Spring**, vídeo: [CRUD Angular + Spring | 19: Formulário para Criar Cursos
+](https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBpwaVgAPxTxhdX_TfSVlTcY) e estou iniciando os estudos da playlist de [Angular 2](https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBoSRcKWEdQACbUCNWLczg2G).
+
+</div>
+___
